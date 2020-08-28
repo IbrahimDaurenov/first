@@ -1,0 +1,45 @@
+{% extends "komp/base.html"%}
+
+
+{% block title %}
+  You can write comment that tell some mistakes of our site
+{% endblock %}
+
+{% block body %}
+  <ul>
+    <li>phone number +7(771)255-50-07</li>
+    <li>email Ibrahim.Daurenov@yandex.ru</li>
+  </ul>
+
+
+  {% for comments in upgrade.comments.all %}
+    <div class="alert alert-info" role="alert">
+      {{comment.author}}: {{comment.content}}
+    </div>
+  {% endfor %}
+
+
+  {% for comments in upgrade.comments.all %}
+    <div class="alert alert-info" role="alert">
+      {{comment.author}}: {{comment.content}}
+    </div>
+  {% endfor %}
+
+  <h>
+    Add comment
+  </h>
+
+  <form action = "{% url 'site' %}" method="post">
+    {% csrf_token %}
+    <label for="author">Your name:</label><br>
+    <input type="text" id="author" name="author"><br>
+
+    <label for="content">Your comment:</label><br>
+    <input type="text" id="content" name="content"><br>
+
+    <input type="submit" value = "Post">
+
+
+  </form>
+
+{% endblock %}
