@@ -3,6 +3,7 @@ from .models import *
 
 admin.site.register(Comment)
 admin.site.register(Game)
-admin.site.register(Games)
+admin.site.register(Type)
 admin.site.register(Contact)
+admin.site.register(Nameofgame)
 # Register your models here.
