@@ -1,0 +1,33 @@
+{% extends "komp/base.html" %}
+
+
+{% block title %}
+  All games!
+{% endblock %}
+
+
+{% block body %}
+
+  <div class="container">
+    <div class="row">
+      {% for game in games %}
+
+      <div class="col-4">
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">{{game.name}}</h5>
+            <p class="card-text">{{game.name}}. This is very cool game. It is {{game.type.name}} </p>
+            <a href="{% url 'game' game.pk %}" class="btn btn-primary">Check {{game.name}}</a>
+          </div>
+        </div>
+      </div>
+
+      {% endfor %}
+
+    </div>
+
+  </div>
+
+
+
+{% endblock %}
