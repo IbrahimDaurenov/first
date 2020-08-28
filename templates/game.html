@@ -1,0 +1,53 @@
+{% extends "komp/base.html"%}
+
+
+
+
+{% block title %}
+  Game
+{% endblock %}
+
+
+{% block body %}
+  <h1>
+    {{game.name}}
+  </h1>
+
+  <ul>
+    <li>
+      Name: {{game.name}}
+    </li>
+  </ul>
+
+
+  {% for comment in game.comments.all %}
+    <div class="alert alert-info" role="alert">
+      {{comment.author}}: {{comment.content}}
+    </div>
+  {% endfor %}
+
+
+  {% for comment in game.comments.all %}
+    <div class="alert alert-info" role="alert">
+      {{comment.author}}: {{comment.content}}
+    </div>
+  {% endfor %}
+
+  <h2>
+    Add comment to Games
+  </h2>
+
+  <form action = "{% url 'komp_upgrade' %}" method="post">
+    {% csrf_token %}
+    <label for="author">Your name:</label><br>
+    <input type="text" id="author" name="author"><br>
+
+    <label for="content">Your comment:</label><br>
+    <input type="text" id="content" name="content"><br>
+
+    <input type="submit" value = "Post">
+
+
+  </form>
+
+{% endblock %}
